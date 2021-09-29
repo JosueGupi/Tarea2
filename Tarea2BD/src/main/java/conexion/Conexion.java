@@ -29,11 +29,9 @@ public class Conexion {
                 return con;
             } catch (SQLException ex) {
                 System.out.println(ex.toString());
-                System.out.println("EN LA PRIMERA");
                 return null;
             } catch (ClassNotFoundException ex) {
                 System.out.println(ex.toString());
-                System.out.println("EN LA SEGUNDA");
                 return null;
         }  
     }
