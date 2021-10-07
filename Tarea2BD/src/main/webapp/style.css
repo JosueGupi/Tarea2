@@ -1,0 +1,120 @@
+#titulo{
+    color:  white;
+    text-align: center;
+    font-size: 40px;
+    text-shadow: 0 0 2px #000;
+}
+body{
+    background-color: white;
+    background-image: url(pattern.jpg);
+   
+    font-family: Bahnschrift SemiBold;
+    text-align: center;
+}
+p{
+    text-align: center;
+    text-shadow: 0 0 2px #000;
+    font-size: 20px;
+    color: #ffffff;
+    
+}
+.boton{
+    padding: 5px;
+    font-size: 20px;
+    font-family: Bahnschrift SemiBold;
+    color:#ffffff;
+    background-color: #483747;
+    border-radius: 6px;
+    border: 2px solid cornflowerblue;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+.content-select{
+	max-width: 300px;
+	position: relative;
+        display: block;
+        margin-left: auto;
+        margin-right: auto 
+}
+ 
+.content-select select{/* Cuadro */
+
+	width: 100%;
+	cursor: pointer;
+  	padding: 7px 10px;
+  	height: 42px;
+  	outline: 0; 
+  	border: 0;
+	border-radius: 0;
+	background: #f0f0f0;
+	color: #7b7b7b;
+	font-size: 1em;
+	color: #999;
+	font-family: Bahnschrift SemiBold;
+	border:2px solid rgba(0,0,0,0.2);
+    border-radius: 12px;
+    position: relative;
+    transition: all 0.25s ease;
+}
+ 
+.content-select select:hover{
+	background: #b1d7e8;
+}
+.content-select i{
+	position: absolute;
+	right: 10px;
+	top: calc(50% - 13px);
+	width: 16px;
+	height: 16px;
+	display: block;
+	border-left:4px solid #2a61c1;
+	border-bottom:4px solid #2a61c1;
+        transform: rotate(-45deg); 
+	transition: all 0.25s ease;
+}
+ 
+.content-select:hover i{
+	margin-top: 3px;
+}
+.styled-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    background: #ffffff;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1em;
+    color: #999;
+    font-family: Bahnschrift SemiBold;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+.styled-table thead tr {
+    background-color: #026e98;
+    color: #ffffff;
+    text-align: center;
+}
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+.styled-table tbody tr {
+    border-bottom: thin solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #026e98;
+}
+.styled-table tbody tr.active-row {
+    font-weight: bold;
+    color: #026e98;
+}
+
+a{
+    
+}

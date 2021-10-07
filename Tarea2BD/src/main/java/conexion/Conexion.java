@@ -6,7 +6,8 @@
 package conexion;
 
 import java.sql.*;
-
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 /**
@@ -29,11 +30,14 @@ public class Conexion {
                 return con;
             } catch (SQLException ex) {
                 System.out.println(ex.toString());
+                System.out.println("EN LA PRIMERA");
                 return null;
             } catch (ClassNotFoundException ex) {
                 System.out.println(ex.toString());
+                System.out.println("EN LA SEGUNDA");
                 return null;
         }  
     }
     
 }
+
