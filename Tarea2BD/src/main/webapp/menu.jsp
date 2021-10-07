@@ -23,9 +23,9 @@
         <div class="content-select">
         <form action ="menuCuentas.jsp"/>
 	<select name = "NumeroCuentas">
-		<option>Sin seleccionar...</option>
+		<option>Seleccione una cuenta...</option>
 		<%
-                    int idCuenta = (int)request.getAttribute("IdCuenta");
+                    /*int idCuenta = (int)request.getAttribute("IdCuenta");
                     String select = "SELECT NumeroCuenta FROM dbo.Cuentas WHERE Id = ?";
                     PreparedStatement sql = Conexion.getConexion().prepareStatement(select);
                     sql.setInt(1, idCuenta);
@@ -34,7 +34,7 @@
                     while(resultado.next()){
                         String numeroCuenta = resultado.getString("NumeroCuenta");
                         out.println("<option value = "+numeroCuenta+">"+numeroCuenta+"</option>");
-                    }
+                    }*/
                 
                 %>
 	</select>
@@ -44,7 +44,7 @@
         &nbsp
         
             
-            <input class= "boton" type="submit" value="Ver beneficiarios">
+            <input class= "boton" type="submit" value="Ver Estados de Cuenta">
 
         </form>
     </body>

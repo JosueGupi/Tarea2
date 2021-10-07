@@ -15,9 +15,9 @@
     <body>
         <div class="content-select">
 	<select>
-		<option>Cuenta 1</option>
-		<option>Cuenta 2</option>
-		<option>Cuenta 3</option>
+		<option>Estado cuenta 1</option>
+		<option>Estado cuenta 2</option>
+		<option>Estado cuenta 3</option>
 	</select>
 	<i></i>
         </div>
