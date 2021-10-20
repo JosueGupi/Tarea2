@@ -42,10 +42,60 @@
         </div>
         &nbsp
         &nbsp
+            <input class= "boton" type="submit" value="Ver estados de cuenta">
+        </form>
         
-            
-            <input class= "boton" type="submit" value="Ver beneficiarios">
+        
+        &nbsp
+        &nbsp
+        <form action ="consulCuentas.jsp"/>
+        <div class="content-select">
+	<select name = "NumeroCuentas2">
+		<option>Sin seleccionar...</option>
+		<%
+                    sql.setInt(1, idCuenta);
+                    while(resultado.next()){
+                        String numeroCuenta = resultado.getString("NumeroCuenta");
+                        out.println("<option value = "+numeroCuenta+">"+numeroCuenta+"</option>");
+                    }
+                
+                %>
+	</select>
+	<i></i>
+        </div>
+        &nbsp
+        &nbsp
+            <input class= "boton" type="submit" value="Ver cuentas objetivo">
+        </form>
+        &nbsp
+        &nbsp
+        <form action ="desactivarCuenta.jsp"/>
+        <div class="content-select">
+	<select name = "NumeroCuentas3">
+		<option>Sin seleccionar...</option>
+		<%
+                    sql.setInt(1, idCuenta);
+                    while(resultado.next()){
+                        String numeroCuenta = resultado.getString("NumeroCuenta");
+                        out.println("<option value = "+numeroCuenta+">"+numeroCuenta+"</option>");
+                    }
+                
+                %>
+	</select>
+	<i></i>
+        </div>
+        &nbsp
+        &nbsp
+            <input class= "boton" type="submit" value="Ver cuentas objetivo">
 
+        </form>
+        &nbsp
+        &nbsp
+        <form action ="agregarCuentas.jsp"/>
+        <%
+            
+        %>
+            <input class= "boton" type="submit" value="Agregar cuenta">
         </form>
     </body>
 </html>
