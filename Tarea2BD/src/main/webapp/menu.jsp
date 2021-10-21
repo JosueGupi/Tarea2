@@ -25,7 +25,7 @@
 	<select name = "NumeroCuentas">
 		<option>Sin seleccionar...</option>
 		<%
-                    int idCuenta = (int)request.getAttribute("IdCuenta");
+                    /*int idCuenta = (int)request.getAttribute("IdCuenta");
                     String select = "SELECT NumeroCuenta FROM dbo.Cuentas WHERE Id = ?";
                     PreparedStatement sql = Conexion.getConexion().prepareStatement(select);
                     sql.setInt(1, idCuenta);
@@ -34,7 +34,7 @@
                     while(resultado.next()){
                         String numeroCuenta = resultado.getString("NumeroCuenta");
                         out.println("<option value = "+numeroCuenta+">"+numeroCuenta+"</option>");
-                    }
+                    }*/
                 
                 %>
 	</select>
@@ -53,12 +53,13 @@
 	<select name = "NumeroCuentas2">
 		<option>Sin seleccionar...</option>
 		<%
+                    /*
                     sql.setInt(1, idCuenta);
                     while(resultado.next()){
                         String numeroCuenta = resultado.getString("NumeroCuenta");
                         out.println("<option value = "+numeroCuenta+">"+numeroCuenta+"</option>");
                     }
-                
+                */
                 %>
 	</select>
 	<i></i>
@@ -73,13 +74,13 @@
         <div class="content-select">
 	<select name = "NumeroCuentas3">
 		<option>Sin seleccionar...</option>
-		<%
+		<%/*
                     sql.setInt(1, idCuenta);
                     while(resultado.next()){
                         String numeroCuenta = resultado.getString("NumeroCuenta");
                         out.println("<option value = "+numeroCuenta+">"+numeroCuenta+"</option>");
                     }
-                
+                */
                 %>
 	</select>
 	<i></i>
