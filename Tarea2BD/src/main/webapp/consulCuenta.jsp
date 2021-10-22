@@ -4,6 +4,9 @@
     Author     : oscfr
 --%>
 
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="conexion.Conexion"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -14,78 +17,90 @@
     </head>
     <body>
         <%
-        /* 
-            Datos de la cuenta
-            o
-            out.println("<p>No existen cuentas que consultar <a href='index.html'>Volver al inicio</a></p>");
-
-            */
+            String datosEC = request.getParameter("EstadosCuenta");
+            String[] partes = datosEC.split(" ");
+            int IdEC = Integer.parseInt(partes[0]);
         %>
         <p>Fecha: 
            <% 
-            /* 
-            Logica Fecha
-            */
+            out.println(partes[1]);
                %>
            Saldo Mínimo: 
            <% 
-            /* 
-            Logica Saldo Mínimo
-            */
+           out.println(partes[6]);
+               %>
+           Saldo Inicial: 
+           <% 
+            out.println(partes[2]);
                %>
            Saldo Final: 
            <% 
-            /* 
-            Logica Saldo Final
-            */
+            out.println(partes[3]);
                %>
            Cantidad OP ATM: 
            <% 
-            /* 
-            Logica Cantidad OP ATM
-            */
+            out.println(partes[4]);
                %>
            Cantidad OP Humano: 
-        <% 
-            /* 
-            Logica Cantidad OP Humano
-            */
+            <% 
+            out.println(partes[5]);
                %>
         </p>
         <table class="styled-table">
             <thead>
                 <tr>
                     <th>Fecha</th>
-                    <th>Tipo de cambio Aplicado</th>
+                    <th>Tipo de cambio Aplicado(Compra/Venta)</th>
                     <th>Monto en moneda de Movimiento</th>
-                    <th>Monto en moneda de la cuanta</th>
+                    <th>Monto en moneda de la cuenta</th>
                     <th>Descripción</th>
                     <th>Nuevo Saldo</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Hoy</td>
-                    <td>Prueba</td>
-                    <td>$15</td>
-                    <td>CRC 6000</td>
-                    <td>Paga Cena</td>
-                    <td>CRC 634000</td>
-                </tr>
-                <tr>
-                    <td>Ayer</td>
-                    <td>Prueba</td>
-                    <td>$1600</td>
-                    <td>CRC 746000</td>
-                    <td>Paga Fin de mes</td>
-                    <td>CRC 1534000</td>
-                </tr>
+                
+                <%
+                    String select = "EXEC SP_ObtenerMovimientos ?,?";
+                    PreparedStatement sql = Conexion.getConexion().prepareStatement(select);
+                    sql.setInt(1, IdEC);
+                    sql.setInt(2, 0);
+                    ResultSet resultado = sql.executeQuery();
+                    
+                    while(resultado.next()){
+                        int IdCambio = resultado.getInt("IdCambio");
+                        int monto = 0;
+                        
+                        String select2 = "SELECT * FROM dbo.TipoCambio WHERE Id = ?";
+                        PreparedStatement sql2 = Conexion.getConexion().prepareStatement(select2);
+                        sql2.setInt(1,IdCambio);
+                        ResultSet resultado2 = sql2.executeQuery();
+                        resultado2.next();
+                        
+                        if(IdCambio == 1 || IdCambio == 2){
+                            monto = resultado.getInt("Monto");
+                        }
+                        else{
+                            if(resultado.getInt("IdMoneda") == 2){
+                                monto = resultado.getInt("Monto")/resultado2.getInt("Compra");
+                            }else{
+                                monto = resultado.getInt("Monto")*resultado2.getInt("Venta");
+                            }
+                        }
+                        
+                        out.println("<tr>"
+                                + "<td>"+resultado.getString("Fecha")+"</td>"
+                                + "<td>"+resultado2.getInt("Compra")+"/"+resultado2.getInt("Venta")+"</td>"
+                                + "<td>"+monto+"</td>"
+                                + "<td>"+resultado.getInt("Monto")+"</td>"
+                                + "<td>"+resultado.getString("Descripcion")+"</td>"
+                                + "<td>"+resultado.getString("NuevoSaldo")+"</td>"
+                                +"</tr>");
+                    }
+                
+                %>
             </tbody>
         </table>
         <%
-            /* 
-            NOTA: EL OUT.PRINTLN DEBERIA DEVOLVER A menuCuentas.jsp NO A index.html
-            */
             out.println("<p>Se consultó la cuenta <a href='index.html'>Salir</a></p>");
         %>
     </body>

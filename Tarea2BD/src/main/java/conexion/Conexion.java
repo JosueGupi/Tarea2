@@ -16,7 +16,7 @@ import java.util.logging.Logger;
  */
 public class Conexion {
     private static final String CONEXIONURL = "jdbc:sqlserver://localhost:1433;"
-                    + "database=PruebaTarea1;"
+                    + "database=Tarea2;"
                     + "user=sa;"
                     + "password=ben10gupi;"
                     + "loginTimeout=30;";

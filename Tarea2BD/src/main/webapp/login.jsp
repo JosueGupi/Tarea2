@@ -34,11 +34,11 @@
             
                 resultado.next();
                 
-                if(resultado.getInt("IdCuenta") != 50004 && resultado.getInt("IdCuenta") != 50005){
+                if(resultado.getInt("Id") != 0){
                     System.out.println("ENTRO");
-                    int numeroCuenta = resultado.getInt(1);
-                    System.out.println(numeroCuenta);
-                    request.setAttribute("IdCuenta", new Integer(numeroCuenta));
+                    int numeroUsuario = resultado.getInt("Id");
+                    System.out.println(numeroUsuario);
+                    request.setAttribute("IdUsuario", new Integer(numeroUsuario));
                     request.getRequestDispatcher("menu.jsp").forward(request, response);
                     response.sendRedirect("menu.jsp");
                 }
