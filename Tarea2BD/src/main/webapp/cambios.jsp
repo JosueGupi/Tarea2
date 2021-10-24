@@ -20,7 +20,9 @@
         <%
                 String date1 = request.getParameter("fecha1");
                 String date2 = request.getParameter("fecha2");
+                String objetivo = request.getParameter("obje");
                 String descripcion = request.getParameter("desc");
+                //out.println("<p>Se editó la cuenta <a href='index.html'>Salir</a></p>");
         %>
     </body>
 </html>

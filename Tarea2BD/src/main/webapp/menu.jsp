@@ -20,9 +20,8 @@
     
     <body>
         <h1 id="titulo" >Bienvenido usuario</h1>
-        
-        <div class="content-select">
         <form action ="menuCuentas.jsp"/>
+        <div class="content-select">
 	<select name = "NumeroCuentas">
 		<option>Sin seleccionar...</option>
 		<%

@@ -1,6 +1,6 @@
 <%-- 
-    Document   : agregarCuentas
-    Created on : 20 oct 2021, 15:15:40
+    Document   : editarCuenta
+    Created on : 23 oct 2021, 17:09:04
     Author     : oscfr
 --%>
 
@@ -13,13 +13,8 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <form action ="cambios.jsp"/>
-
-            <p>Fecha de inicio: <input type="date" name="fecha1" required/></p>
-            <p>Fecha de final: <input type="date" name="fecha2" required/></p>
-            <p>Objetivo: <input type="number" name="obje" required/></p>
-            <p>Descripción: <input type="text" name="desc" required/></p>
-            
+        <form action ="logicaEditar.jsp"/>
+            <p>Descripción: <input type="text" name="desc" required/></p>       
             <input class= "boton" type="submit" value="Guardar Cambios">
             
         </form>

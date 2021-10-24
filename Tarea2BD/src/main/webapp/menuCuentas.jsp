@@ -18,8 +18,9 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <div class="content-select">
+        <h1 id="titulo" >Menu Cuentas</h1>
         <form action ="consulCuenta.jsp"/>
+        <div class="content-select">
 	<select name = "EstadosCuenta">
 		<option>Sin seleccionar...</option>
 		<%  
