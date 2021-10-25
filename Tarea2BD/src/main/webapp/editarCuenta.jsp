@@ -14,6 +14,10 @@
     </head>
     <body>
         <form action ="logicaEditar.jsp"/>
+        <%
+            int IdCuenta = Integer.parseInt(request.getParameter("VerCuentasObj"));
+            out.println("<input type='hidden' name='cuenta' value="+IdCuenta+">");
+        %>
             <p>Descripción: <input type="text" name="desc" required/></p>       
             <input class= "boton" type="submit" value="Guardar Cambios">
             

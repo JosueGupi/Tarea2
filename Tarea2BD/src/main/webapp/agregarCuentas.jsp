@@ -14,7 +14,10 @@
     </head>
     <body>
         <form action ="cambios.jsp"/>
-
+            <%
+                int IdCuenta =Integer.parseInt(request.getParameter("cuenta"));
+                out.println("<input type='hidden' name='cuenta' value="+IdCuenta+">");
+            %>
             <p>Fecha de inicio: <input type="date" name="fecha1" required/></p>
             <p>Fecha de final: <input type="date" name="fecha2" required/></p>
             <p>Objetivo: <input type="number" name="obje" required/></p>

@@ -18,11 +18,26 @@
     </head>
     <body>
         <%
+            try{
+                int IdCuenta =Integer.parseInt(request.getParameter("cuenta"));
+                
                 String date1 = request.getParameter("fecha1");
                 String date2 = request.getParameter("fecha2");
-                String objetivo = request.getParameter("obje");
+                int objetivo = Integer.parseInt(request.getParameter("obje"));
                 String descripcion = request.getParameter("desc");
-                //out.println("<p>Se editó la cuenta <a href='index.html'>Salir</a></p>");
+                String select = "EXEC SP_InsertarCuentaObjetivo ?, ?, ?, ?, ?, ?";
+                PreparedStatement sql = Conexion.getConexion().prepareStatement(select);
+                sql.setInt(1, IdCuenta);
+                sql.setString(2,date1);
+                sql.setString(3,date2);
+                sql.setInt(4,objetivo);
+                sql.setString(5,descripcion);
+                sql.setInt(6,0);
+                sql.executeQuery();
+                out.println("<p>Se editó la cuenta <a href='index.html'>Salir</a></p>");
+            }catch(Exception e){
+                 out.println("<p>Se editó la cuenta <a href='index.html'>Salir</a></p>");
+            }
         %>
     </body>
 </html>

@@ -4,6 +4,8 @@
     Author     : oscfr
 --%>
 
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="conexion.Conexion"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -13,9 +15,24 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <%
-            String descripcion = request.getParameter("desc");
-            //out.println("<p>Se desactivó la cuenta <a href='index.html'>Salir</a></p>");
+        <%  try{
+            
+
+                int IdCuenta = Integer.parseInt(request.getParameter("cuenta"));
+                String descripcion = request.getParameter("desc");
+
+                String select = "EXEC SP_ActualizarCuentaObjetivo ?, ?, ?";
+                PreparedStatement sql = Conexion.getConexion().prepareStatement(select);
+                sql.setInt(1, IdCuenta);
+                sql.setString(2, descripcion);
+                sql.setInt(3,0);
+                sql.executeQuery();
+                out.println("<p>Se desactivó la cuenta <a href='index.html'>Salir</a></p>");
+            }
+        catch(Exception e){
+            out.println("<p>Se desactivó la cuenta <a href='index.html'>Salir</a></p>");
+        }
+            
         %>
     </body>
 </html>
